@@ -12,6 +12,7 @@
   "license": "MIT",
   "author": "Jonny Buchanan <jonathan.buchanan@gmail.com>",
   "scripts": {
+    "prepublish": "nwb build-module",
     "test": "nwb lint"
   },
   "files": [
