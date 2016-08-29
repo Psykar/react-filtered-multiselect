@@ -32,6 +32,8 @@ const DEFAULT_CLASS_NAMES = {
   button: 'FilteredMultiSelect__button',
   buttonActive: 'FilteredMultiSelect__button--active',
   filter: 'FilteredMultiSelect__filter',
+  option: 'FilteredMultiSelect__option',
+  optgroup: 'FilteredMultiSelect__optgroup',
   select: 'FilteredMultiSelect__select'
 }
 
@@ -200,16 +202,16 @@ export default React.createClass({
       }, {})
       options = Object.keys(groups).map((group) => {
         return (
-          <optgroup key={group} label={group}>
+          <optgroup className={this._getClassName('optgroup')} key={group} label={group}>
             {groups[group].map((option) => {
-              return <option key={option[valueProp]} value={option[valueProp]}>{option[textProp]}</option>
+              return <option className={this._getClassName('option')} key={option[valueProp]} value={option[valueProp]}>{option[textProp]}</option>
             })}
           </optgroup>
         )
       })
     } else {
       options = filteredOptions.map((option) => {
-        return <option key={option[valueProp]} value={option[valueProp]}>{option[textProp]}</option>
+        return <option className={this._getClassName('option')} key={option[valueProp]} value={option[valueProp]}>{option[textProp]}</option>
     })
     }
     return <div className={className}>
